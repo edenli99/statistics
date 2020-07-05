@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="zh">
+	<head>
+	<meta charset="utf-8">
+	<title>数解新冠肺炎</title>
+		<link rel="stylesheet" href="css/style.css"><!--css设置-->
+		<script src="js/echarts.js"></script><!--js设置-->
+	</head>
+	<body class="container">
+		<header id="top"><!--顶部导航栏-->
+			<nav>
+				<ul>
+				  <li><a href="#target">| | |</a>
+					<ul id="target">
+						<li><a href="#first">国内情况</a></li>
+						<li><a href="#second">各省数据</a></li>
+						<li><a href="#third">痊愈数据</a></li>
+						<li><a href="#fourth">国际情况</a></li>
+						<li><a href="#fifth">预防方法</a></li>
+						<li><a href="#sixth">中国措施</a></li>
+					</ul>
+				  </li>
+				</ul>
+			</nav>
+			<h1><i>数解新冠肺炎</i></h1><!--网站顶部大标题-->
+		 </header>
+		 <main>
+			 <section class="topImg"></section><!--顶部划动视差图以及介绍文字-->
+			 <section class="text">新型冠状病毒肺炎（Corona Virus Disease 2019，COVID-19），简称“新冠肺炎”，世界卫生组织命名为“2019冠状病毒病”，是指2019新型冠状病毒感染导致的肺炎。2019年12月以来，湖北省武汉市部分医院陆续发现了多例有华南海鲜市场暴露史的不明原因肺炎病例，现已证实为2019新型冠状病毒感染引起的急性呼吸道传染病。</section>
+			 <hr>
+			 <!--国内累计确诊人数统计-->
+   			 <div id="first" style="height: 600%"></div>
+   			 <script type="text/javascript">	
+				var myChart = echarts.init(document.getElementById('first'));
+				var option = {
+								title: {
+									text: '国内累计确诊人数'
+								},
+								tooltip: {trigger: 'axis'},
+								legend: {
+									data:['累计确诊人数']
+								},
+								xAxis: {
+									data: ["2020.1.21","2020.2.21","2020.3.21","2020.4.21","2020.5.21","2020.6.21"]
+								},
+								yAxis: {},
+								series: [{
+									name: '累计确诊人数（截至当日24时）',
+									type: 'line',
+									data: [291, 63454, 81054, 82788, 82971, 83396]
+									}]
+								};
+								myChart.setOption(option);
+			 </script>
+			 <hr>
+			 <br>
+			 <!--各省累计确诊人数统计-->
+			 <div id="second" style="height:1600%"></div>
+   			 <script type="text/javascript">	
+				var myChart = echarts.init(document.getElementById('second')); 
+				var option = {
+								title: {
+									text: '各省累计确诊人数（截至北京时间2020年7月1日）'
+								},
+								color: ['#3398DB'],
+								tooltip: {
+									trigger: 'axis',
+									axisPointer: {            
+										type: 'shadow'        
+									}
+								},
+								grid: {
+									left: '3%',
+									right: '4%',
+									bottom: '3%',
+									containLabel: true
+								},
+								yAxis: [
+									{
+										type: 'category',
+										data: [ '北京',
+												'香港',
+												'上海',
+												'甘肃',
+												'四川',
+												'河北',
+												'陕西',
+												'广东',
+												'辽宁',
+												'重庆',
+												'台湾',
+												'福建',
+												'浙江',
+												'天津',
+												'澳门',
+												'湖北',
+												'河南',
+												'湖南',
+												'安徽',
+												'黑龙江',
+												'江西',
+												'山东',
+												'江苏',
+												'广西',
+												'内蒙古',
+												'云南',
+												'海南',
+												'吉林',
+												'贵州',
+												'新疆',
+												'宁夏',
+												'青海',
+												'西藏'],
+								axisTick: {
+										   alignWithLabel: true
+										}
+									}
+								],
+								xAxis: [
+									{
+										type: 'value'
+									}
+								],
+								series: [
+									{
+										name: '累计确诊人数',
+										type: 'bar',
+										barWidth: '60%',
+										data: [922,
+											   1205,
+											   712,
+											   164,
+											   595,
+											   349,
+											   320,
+											   1641,
+											   155,
+											   582,
+											   447,
+											   363,
+											   1269,
+											   198,
+											   46,
+											   68135,
+											   1276,
+											   1019,
+											   991,
+											   947,
+											   932,
+											   792,
+											   654,
+											   254,
+											   238, 
+											   185, 
+											   171,
+											   155,
+											   147,
+											   76,
+											   75,
+											   18,
+												1,
+												]
+											}
+										]
+									};			
+								 myChart.setOption(option);
+			 </script>
+			 <hr>
+			 <br>
+			 <!--国内痊愈和死亡数据统计-->
+			 <div id="third" style="height:800%"></div>
+   			 <script type="text/javascript">	
+				var myChart = echarts.init(document.getElementById('third'));
+				var option = {
+								title: {
+								text: '国内痊愈和死亡数据统计（截至当日24时）'
+								},
+								tooltip: {
+								trigger: 'axis',
+								axisPointer: {
+											  type: 'cross',
+											  label: {
+											  backgroundColor: '#6a7985'
+										}
+									}
+								},
+								legend: {
+										 data: ['累计痊愈', '累计死亡']
+								},
+								toolbox: {
+										  feature: {
+										  saveAsImage: {}
+									}
+								},
+								grid: {
+								   left: '3%',
+								   right: '4%',
+								   bottom: '3%',
+								   containLabel: true
+									},
+								xAxis: [
+									{
+									type: 'category',
+									boundaryGap: false,
+									data: ["2020.2.1","2020.3.1","2020.4.1","2020.5.1","2020.6.1","2020.7.1"]
+										}
+									],
+									yAxis: [
+										{
+											type: 'value'
+										}
+									],
+									series: [
+
+										{
+									name: '累计死亡',
+									type: 'line',
+									stack: '总量',
+									areaStyle: {},
+									data: [304, 2912, 3318, 4633, 4634, 4634]
+									},
+									{
+									name: '累计痊愈',
+									type: 'line',
+									stack: '总量',
+									areaStyle: {},
+									data: [328, 44462, 76408, 77685, 78315, 78487]
+											},
+										]
+									};
+			  						myChart.setOption(option);
+			 </script>
+			 <hr>
+			 <br>
+			 <!--世界重点国家累计确诊人数统计-->
+			 <div id="fourth" style="height:1100%"></div>
+   			 <script type="text/javascript">	
+				var myChart = echarts.init(document.getElementById('fourth')); 
+				var option = {
+								title: {
+										text: '世界重点国家累计确诊人数（截至北京时间2020年7月2日）'
+									},
+								tooltip: {trigger: 'item'},
+								itemStyle: {
+											emphasis: {
+											shadowBlur: 200,
+											shadowColor: 'rgba(0, 0, 0, 0.5)'
+												}
+												},
+								series: [{
+										  name: '累计确诊人数',
+										  type: 'pie',
+										  radius: [120, 320],
+										  roseType: 'angle',
+										  labelLine: {
+										  normal: {
+										  lineStyle: {
+										  width: 1
+											},
+										  length: 60
+											}},
+										  data: [{value:2686258, name:'美国'},
+												 {value:1448753, name:'巴西'},
+												 {value:661165, name:'俄罗斯'},
+												 {value:604641, name:'印度'},
+												 {value:313483, name:'英国'},
+												 {value:288477, name:'秘鲁'},
+												 {value:282043, name:'智利'},
+												 {value:249659, name:'西班牙'},
+												 {value:240760, name:'意大利'},
+												 {value:232863, name:'伊朗'},
+												  ,
+												  ]
+															}]
+													};
+								myChart.setOption(option);	
+			</script>
+			<hr>
+			<br>
+			<!--预防方法-->
+			<h2 id="fifth">预防方法</h2>
+			<h3>一、加强个人防护</h3> 
+			<p>1.避免前往人群密集的公共场所。避免接触发热呼吸道感染病人，如需接触时要佩戴口罩。</p>
+			<p>2.勤洗手。尤其在手被呼吸道分泌物污染时、触摸过公共设施后、照顾发热呼吸道感染或呕吐腹泻病人后、探访医院后、处理被污染的物品以及接触动物、动物饲料或动物粪便后。</p>
+			<p>3.不要随地吐痰。打喷嚏或咳嗽时用纸巾或袖肘遮住口、鼻。</p>
+			<p>4.加强锻炼，规律作息，保持室内空气流通。</p>
+			<h3>二、避免接触野生禽畜</h3>
+			<p>1.避免接触禽畜、野生动物及其排泄物和分泌物，避免购买活禽和野生动物。</p>
+			<p>2.避免前往动物农场和屠宰场、活禽动物交易市场或摊位、野生动物栖息地或等场所。必须前往时要做好防护，尤其是职业暴露人群。</p>
+			<p>3.避免食用野生动物。不要食用已经患病的动物及其制品；要从正规渠道购买冰鲜禽肉，食用禽肉蛋奶时要充分煮熟，处理生鲜制品时，器具要生熟分开并及时清洗，避免交叉污染。</p>
+			<h3>三、杜绝带病上班、聚会</h3>
+			<p>如有发烧、咳嗽等呼吸道感染的症状，居家休息，减少外出和旅行，天气良好时居室多通风，接触他人请佩戴口罩。要避免带病上班、上课及聚会。</p>
+			<h3>四、及时就医</h3>
+			<p>从武汉等地外出旅行归来，如出现发热咳嗽等呼吸道感染症状，应根据病情就近选择医院发热门诊就医，并戴上口罩就诊，同时告知医生类似病人或动物接触史、旅行史等。</p>
+			<hr>
+			<br>
+			<!--中国措施以及现存确诊病例统计-->
+			<h2 id="sixth">中国措施</h2>
+			<p>今年以来，面对新冠肺炎疫情的肆虐，习近平总书记亲自指挥，党政军民齐心协力，迅速稳住了局面，疫情得到了有效控制，获得世界多数国家的广泛赞誉，世界卫生组织总干事谭塞德称赞“中国的许多措施实际上正在成为疫情应对的新标杆”。</p>
+			<div id="sixth1" style="height: 500%;"></div>
+   			<script type="text/javascript">	
+				var myChart = echarts.init(document.getElementById('sixth1'));
+				var option = {
+								title: {
+										text: '中国现存确诊病例'
+									},
+								tooltip: {trigger: 'axis'},
+								xAxis: {
+									type: 'category',
+									data: ["2020.3.1","2020.4.1","2020.5.1","2020.6.1","2020.7.1"]
+								},
+								yAxis: {
+									type: 'value'
+								},
+								series: [{
+									data: [32652, 1863, 557, 73, 416],
+									name:'现存确诊',
+									type: 'line',
+									smooth: true
+											}]
+										};
+						 		myChart.setOption(option);	
+			</script>
+			<p>毫无疑问，本次凶猛的疫情能得到快速遏制跟中国独特的政治制度密切相关，新冠肺炎带来的治理挑战中蕴含着中国政治形象塑造的契机。中国有效应对新冠肺炎疫情危机的诸多事实，打碎了偏见的外壳，成功展示了中国政治形象。</p>
+			<hr>
+			<br>
+			<br>
+			<aside class="bottomImg"></aside><!--底部划动视差图以及数据来源-->
+			<br>
+			<aside class="bottomText">
+				<i><b><span class="enlarge">数据来源：</span></b><br>中华人民共和国国家卫生健康委员会官方网站；<br>丁香园；<br>图片来自于百度。</i> 
+			</aside>
+			<!--页脚部分-->
+			<footer>如有疑问请联系<a href="mailto:1181967416@qq.com">我</a>
+			<br><a href="#top">▲返回顶部▲</a></footer>	 
+		 </main>
+	</body>
+</html>
